@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Sign Up</title>
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="row" style="height:85px">
+
+                <br></br>
+                <div class="col-md-4">
+                    <h:commandButton id="return" value="Return" action="index.xhtml" class="btn btn-primary"/>
+                </div>
+                <div class="col-md-4">
+                    <p class="text-primary h2" align="center">Facebook</p>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+        </h:form>
+        <div class="row" style="height:800px">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h:form>
+                    <table class="table table-hover">
+                        <tr class="active">
+                            <td>First Name</td>
+                            <td>:</td>
+                            <td>
+                                <h:inputText id="fname" required="true"
+                                             requiredMessage="The First Name field cannot be empty"
+                                             title="Please enter your First Name"
+                                             value="#{registration.f_name}">
+                                    <f:validateLength maximum="32" minimum="1"/>
+                                </h:inputText>
+                                &nbsp;
+                                <h:message for="fname" style="color:red"/>
+                            </td>
+                        </tr>
+
+                        <tr class="warning">
+                            <td>Last Name</td>
+                            <td>:</td>
+                            <td>
+                                <h:inputText id="lname" required="true"
+                                             requiredMessage="The Last Name field cannot be empty"
+                                             title="Please enter your Last Name"
+                                             value="#{registration.l_name}">
+                                    <f:validateLength maximum="10" minimum="1"/>
+                                </h:inputText>
+                                &nbsp;
+                                <h:message for="lname" style="color:red"/>
+                            </td>
+                        </tr>
+
+                        <tr class="active">
+                            <td>User ID</td>
+                            <td>:</td>
+                            <td>
+                                <h:inputText id="uid" required="true"
+                                             requiredMessage="The User ID field cannot be empty"
+                                             title="Please enter your User ID"
+                                             value="#{registration.id}"
+                                             validatorMessage="Please use correct format for user ID">
+                                    <f:validateLength maximum="20" minimum="3"/>
+                                </h:inputText>
+                                &nbsp;
+                                <h:message for="uid" style="color:red"/>
+                            </td>
+                        </tr>
+
+                        <tr class="warning">
+                            <td>Password</td>
+                            <td>:</td>
+                            <td>
+                                <h:inputText id="pwd" required="true"
+                                             requiredMessage="The Password field cannot be empty"
+                                             title="Please enter your Password"
+                                             value="#{registration.password}"
+                                             validatorMessage="The length of your password must be between 3 and 20.">
+                                    <f:validateLength maximum="20" minimum="3"/>      
+                                </h:inputText>
+                                &nbsp;
+                                <h:message for="pwd" style="color:red"/> 
+                            </td>
+                        </tr>
+
+                        <tr class="active">
+                            <td>Email Address</td>
+                            <td>:</td>
+                            <td>
+                                <h:inputText id="email" required="true"
+                                             requiredMessage="The Email Address field cannot be empty"
+                                             title="Please enter your Email Address"
+                                             value="#{registration.email}"
+                                             validatorMessage="Please use a correct format for Email Address">
+                                    <f:validateLength maximum="40" minimum="10"/>                                  
+                                </h:inputText>
+                                &nbsp;
+                                <h:message for="email" style="color:red"/>  
+                            </td>
+                        </tr>
+
+                        <tr class="warning">
+                            <td>Security Question1</td>
+                            <td>:</td>
+                            <td>
+                                <h:selectOneMenu id="seq1" style="width:250px" value="#{registration.secq1}">
+                                    <f:selectItems value="#{registration.secquestions}"/>
+                                </h:selectOneMenu>
+                            </td>
+                        </tr>
+
+                        <tr class="active">
+                            <td>Answer for Security Question1</td>
+                            <td>:</td>
+                            <td>
+                                <h:inputText id="answer1" required="true"
+                                             requiredMessage="The Answer field cannot be empty"
+                                             title="Please enter your answer for security question1"
+                                             value="#{registration.answer1}">
+                                    <f:validateLength maximum="10" minimum="1"/>
+                                </h:inputText>
+                                &nbsp;
+                                <h:message for="answer1" style="color:red"/>
+                            </td>
+                        </tr>
+
+                        <tr class="active">
+                            <td>Security Question2</td>
+                            <td>:</td>
+                            <td>
+                                <h:selectOneMenu id="seq2" style="width:250px" value="#{registration.secq2}">
+                                    <f:selectItems value="#{registration.secquestions}"/>
+                                </h:selectOneMenu>
+                            </td>
+                        </tr>
+
+                        <tr class="warning">
+                            <td>Answer for Security Question2</td>
+                            <td>:</td>
+                            <td>
+                                <h:inputText id="answer2" required="true"
+                                             requiredMessage="The Answer field cannot be empty"
+                                             title="Please enter your answer for security question2"
+                                             value="#{registration.answer2}">
+                                    <f:validateLength maximum="10" minimum="1"/>
+                                </h:inputText>
+                                &nbsp;
+                                <h:message for="answer2" style="color:red"/>        
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center">
+                                <h:commandButton id="register" value="Register"
+                                                 action="confirmation2.xhtml" class="btn btn-primary"/>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>    
+        <div class="row">
+            <div class="col-md-12">
+                <br></br>
+                <h4 align="center">&copy;Hieu Nguyen Aug 2019</h4>
+            </div>
+        </div>
+
+    </h:body>
+</html>
