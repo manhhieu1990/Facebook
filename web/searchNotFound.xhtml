@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Search Results</title>
+        <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div class="row" style="height: 85px;">
+
+                <br></br>
+                <div class="col-md-4">
+                    <h:commandButton id="home" value="Home" action="welcome.xhtml" class="btn btn-primary"/>
+                    &nbsp;&nbsp;&nbsp;
+                    <h:commandButton id="myProfile" value="My Profile" action="#{login.theAccount.myProfile()}" class="btn btn-primary"/>
+                </div>
+                <div class="col-md-4">
+                    <p class="text-primary h2" align="center">Facebook</p>
+                </div>
+                <div class="col-md-4" align="center">
+                    Welcome, #{login.theAccount.f_name}!
+                    &nbsp;&nbsp;&nbsp;
+                    <h:link outcome="index.xhtml" class="text-danger">
+                        Logout
+                    </h:link>
+                </div>
+            </div>
+        </h:form>
+
+        <h:form>
+            <div class="row" style="height:800px">
+                <div class="col-md-3">
+                    <table class="table table-striped">
+                        <tr>
+                            <td colspan="3">
+                                <h4>Search page</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspa="3">
+                                Name: #{login.theAccount.search_fname} #{login.theAccount.search_lname}<br></br>
+                                ID: #{login.theAccount.id}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Status: #{login.theAccount.search_statusCount}
+                            </td>
+                            <td>
+                                Followers: #{login.theAccount.search_followersCount}
+                            </td>
+                            <td>
+                                Following: #{login.theAccount.search_followingCount}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <h:commandButton rendered="#{login.theAccount.displayFollowButton}" id="follow" value="Follow"
+                                                 action="#{login.theAccount.follow()}"/>
+                                <h:commandButton rendered="#{!login.theAccount.displayFollowButton}" id="unFollow" value="Unfollow"
+                                                 action="#{login.theAccount.unFollow()}"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br></br><br></br>
+                    <table class="table table-striped">
+                        <tr>
+                            <td colspan="3">
+                                <h4>Trending Topics</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:dataTable rows="#{login.theAccount.trend.size()}" value="#{login.theAccount.trend}" var="topic" class="table table-striped">
+                                    <h:column>
+                                        <h:form>
+                                            #{topic.hashTag}&nbsp;:
+                                            #{topic.count}&nbsp;Status
+                                        </h:form>
+                                    </h:column>
+                                </h:dataTable>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h2 align="center">Search Not Found!</h2>
+                </div>
+                <div class="col-md-3">
+                    <table align="center" class="table">
+                        <tr>
+                            <td align="right">
+                                <h:inputText id="searchString" required="true"
+                                             requiredMessage="The search field cannot be empty ! Please enter a User ID to search!"
+                                             title="Please enter an User ID to search"
+                                             value="#{login.theAccount.search_String}" class="form-control">
+                                </h:inputText>
+                            </td>
+                            <td align="left">
+                                <h:commandButton id="search" value="Search" action="#{login.theAccount.search()}" class="btn alert-danger"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>  
+            </div>
+        </h:form>
+        <div class="row">
+            <div class="col-md-12">
+                <br></br>
+                <h4 align="center">&copy; Manh Hieu 2019</h4>
+            </div>
+        </div>
+    </h:body>
+</html>

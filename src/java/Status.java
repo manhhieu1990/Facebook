@@ -19,6 +19,9 @@ public class Status {
     private String status_date;
     private int like_count;
     private boolean displayLikeButton;
+    private boolean displayUnlikeButton;
+    private boolean displayShareButton;
+    private boolean displayReplyTextArea;
     private boolean displayReplies;
     private ArrayList<Reply> replies = new ArrayList<Reply>();
 
@@ -90,8 +93,24 @@ public class Status {
         return displayReplies;
     }
 
+    public boolean isDisplayUnlikeButton() {
+        return displayUnlikeButton;
+    }
+
+    public void setDisplayUnlikeButton(boolean displayUnlikeButton) {
+        this.displayUnlikeButton = displayUnlikeButton;
+    }
+    
     public void setDisplayReplies(boolean displayReplies) {
         this.displayReplies = displayReplies;
+    }
+
+    public boolean isDisplayShareButton() {
+        return displayShareButton;
+    }
+
+    public void setDisplayShareButton(boolean displayShareButton) {
+        this.displayShareButton = displayShareButton;
     }
 
     public ArrayList<Reply> getReplies() {
@@ -100,6 +119,14 @@ public class Status {
 
     public void setReplies(ArrayList<Reply> replies) {
         this.replies = replies;
+    }
+
+    public boolean isDisplayReplyTextArea() {
+        return displayReplyTextArea;
+    }
+
+    public void setDisplayReplyTextArea(boolean displayReplyTextArea) {
+        this.displayReplyTextArea = displayReplyTextArea;
     }
 
 }

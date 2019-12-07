@@ -10,56 +10,60 @@
     <h:body>
         <div class="row" style="height:87px">
             <br></br><br></br><br></br>
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <p class="text-primary h2" align="center">Facebook</p> 
-                </div>
-                <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <p class="text-primary h2" align="center">Facebook</p> 
+            </div>
+            <div class="col-md-4"></div>
         </div>
-        
+
         <div class="row" style="height:800px">
             <div class="col-md-4"></div>
             <div class="col-md-4">
-            <br></br><br></br><br></br><br></br><br></br>
-            <h:form>
-            <table class="table table-hover">
-                <tr class="active">
-                    <td>User</td>
-                    <td>:</td>
-                    <td>
-                        <h:inputText id="id" required="true"
-                                     requiredMessage="ID field cannot be empty"
-                                     title="Please enter your user ID"
-                                     value="#{login.id}" class="form-control">
-                        </h:inputText>
-                        &nbsp;
-                        <h:message for="id" style="color:red"/>
-                    </td>
-                </tr>
-                <tr class="warning">
-                    <td>Password</td>
-                    <td>:</td>
-                    <td>
-                        <h:inputSecret id="pwd" required="true"
-                                       requiredMessage="Password field cannot be empty"
-                                       title="Please enter your password"
-                                       value="#{login.password}" class="form-control">
-                        </h:inputSecret>
-                        &nbsp;
-                        <h:message for="pwd" style="color:red"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3" align="center">
-                        <h:commandButton id="login" value="Login" action="#{login.login()}" class="btn btn-primary"/>
-                        &nbsp;
-                        <h:commandButton id="fotgotPassword" value="Forgot Password" action="forgotPassword.xhtml" class="btn btn-primary"/>
-                        &nbsp;
-                        <h:commandButton id="register" value="Register" action="register.xhtml" class="btn btn-primary"/>
-                    </td>
-                </tr>
-            </table>
-            </h:form>    
+                <br></br><br></br><br></br><br></br><br></br>
+                <h:form>
+                    <table class="table table-hover">
+                        <tr class="active">
+                            <td>User</td>
+                            <td>:</td>
+                            <td>
+                                <h:inputText id="id" required="true"
+                                             requiredMessage="User ID field cannot be empty!"
+                                             title="Please enter user ID"
+                                             value="#{login.id}" class="form-control">
+                                </h:inputText>
+                                &nbsp;
+                                <h:message for="id" style="color:red"/>
+                            </td>
+                        </tr>
+                        <tr class="warning">
+                            <td>Password</td>
+                            <td>:</td>
+                            <td>
+                                <h:inputSecret id="pwd" required="true"
+                                               requiredMessage="Password field cannot be empty"
+                                               title="Please enter password"
+                                               value="#{login.password}" class="form-control">
+                                </h:inputSecret>
+                                &nbsp;
+                                <h:message for="pwd" style="color:red"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center">
+                                <h:commandButton id="login" value="Login" action="#{login.login()}" class="btn btn-primary" type="submit"/>
+                                &nbsp;
+                                <h:link outcome="forgotPassword.xhtml" class="btn btn-primary">
+                                    forgot password
+                                </h:link>
+                                &nbsp;
+                                <h:link outcome="register.xhtml" class="btn btn-primary">
+                                    register
+                                </h:link> 
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>    
             </div>
             <div class="col-md-4"></div>
         </div>
